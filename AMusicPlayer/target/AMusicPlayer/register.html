@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>音乐播放器注册页面</title>
+
+    <!-- 1. 导入CSS的全局样式 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <!-- 3. 导入bootstrap的js文件 -->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <script type="text/javascript"></script>
+    <style>
+		  #body{
+			  background-image: url("images/3.png");
+              /*background-size:100% 100%;
+              background-attachment: fixed;*/
+      }
+      </style>
+    <script>
+		  //登录请求
+		  $(function () {
+		  	$("#submit").click(function () {
+				var username=$("#username").val();
+				var passwordOne=$("#passwordOne").val();
+				var passwordTwo=$("#passwordTwo").val();
+				var gender=$("#gender").val();
+				var age=$("#age").val();
+				var email=$("#email").val();
+				$.ajax({
+					url:"registerServlet",
+                    data:{"username":username,"passwordOne":passwordOne,"passwordTwo":passwordTwo,"gender":gender,"age":age,"email":email},
+                    type:"POST",
+					dataType:"json",
+					success:function (data) {
+                        console.log(data);
+                        if(data.msg===true){
+                            window.location.href="login.html";
+                        }else{
+                            /*window.location.reload();*/
+                            $("#message").text("请检查邮件格式和两次密码相同以及性别和是否有空白");
+                            $("#user").val("");
+                            $("#passwordOne").val("");
+                            $("#passwordTwo").val("");
+                            $("#gender").val("");
+                            $("#age").val("");
+                            $("#email").val("");
+                            $("#verifycode").val("");
+                        }
+					}
+				});
+			});
+		  });
+	  </script>
+</head>
+<body id="body">
+<div class="container" style="width: 400px;margin-top: 110px;background-color: rgba(255,255,255,0.8)">
+    <h3 style="text-align: center;">注册</h3>
+    <!--        <form action="login" method="post">-->
+    <div class="form-group" >
+        <label for="username">用户名：</label>
+        <input type="text" name="username" class="form-control" id="username" placeholder="请输入用户名"/>
+    </div>
+
+    <div class="form-group">
+        <label for="passwordOne">密码：</label>
+        <input type="password" name="passwordOne" class="form-control" id="passwordOne" placeholder="请输入密码"/>
+    </div>
+
+    <div class="form-group">
+        <label for="passwordTwo">密码：</label>
+        <input type="password" name="passwordTwo" class="form-control" id="passwordTwo" placeholder="请第二次输入密码"/>
+    </div>
+
+    <div class="form-group" >
+        <label for="gender">性别：</label>
+        <input type="text" name="gender" class="form-control" id="gender" placeholder="性别"/>
+    </div>
+
+    <div class="form-group" >
+        <label for="age">年龄：</label>
+        <input type="text" name="age" class="form-control" id="age" placeholder="年龄,请输入数字"/>
+    </div>
+
+    <div class="form-group" >
+        <label for="email">邮件：</label>
+        <input type="text" name="email" class="form-control" id="email" placeholder="邮件"/>
+    </div>
+
+    <hr/>
+    <div class="form-group" style="text-align: center;"><!--class="form-group"-->
+        <input style="width: 200px;height: 40px" id="submit" class="btn btn btn-primary" type="button" value="注册" >
+    </div>
+    <!--	  	</form>-->
+    <!-- 出错显示的信息框 -->
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" >
+            <span>&times;</span>
+        </button>
+        <strong id="message">您尚未进行注册，请您注册!</strong>
+    </div>
+</div>
+</body>
+</html>
