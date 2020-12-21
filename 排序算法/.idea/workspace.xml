@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2d9bb89f-53e8-4b7c-b76d-b93bc8281c5b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lx9RQMB2ZmxrMBaBhd9tXUaQWm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager" selected="Application.ThreadTest">
+    <configuration name="BubbleSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="冒泡排序.BubbleSort" />
+      <module name="排序算法" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="冒泡排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HeapSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="堆排序.HeapSort" />
+      <module name="排序算法" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="堆排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SelectSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="选择排序.SelectSort" />
+      <module name="排序算法" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="选择排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShellSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="希尔排序.ShellSort" />
+      <module name="排序算法" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="希尔排序.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ThreadTest" />
+      <module name="排序算法" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ThreadTest" />
+        <item itemvalue="Application.HeapSort" />
+        <item itemvalue="Application.BubbleSort" />
+        <item itemvalue="Application.SelectSort" />
+        <item itemvalue="Application.ShellSort" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d9bb89f-53e8-4b7c-b76d-b93bc8281c5b" name="Default Changelist" comment="" />
+      <created>1608527866400</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608527866400</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1238" height="114" key="GridCell.Tab.0.bottom" timestamp="1608548570680">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1238" height="114" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608548570680" />
+    <state width="1238" height="114" key="GridCell.Tab.0.center" timestamp="1608548570680">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1238" height="114" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1608548570680" />
+    <state width="1238" height="114" key="GridCell.Tab.0.left" timestamp="1608548570679">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1238" height="114" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1608548570679" />
+    <state width="1238" height="114" key="GridCell.Tab.0.right" timestamp="1608548570680">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1238" height="114" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1608548570680" />
+    <state width="1238" height="114" key="GridCell.Tab.1.bottom" timestamp="1608548570680">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1238" height="114" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1608548570680" />
+    <state width="1238" height="114" key="GridCell.Tab.1.center" timestamp="1608548570680">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1238" height="114" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1608548570680" />
+    <state width="1238" height="114" key="GridCell.Tab.1.left" timestamp="1608548570680">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1238" height="114" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1608548570680" />
+    <state width="1238" height="114" key="GridCell.Tab.1.right" timestamp="1608548570680">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1238" height="114" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1608548570680" />
+    <state x="638" y="146" width="672" height="678" key="search.everywhere.popup" timestamp="1608532851673">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="638" y="146" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1608532851673" />
+  </component>
+</project>
