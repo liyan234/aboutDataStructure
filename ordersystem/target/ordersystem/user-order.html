@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点餐系统 - 订单</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="center">
+    <nav>
+        <div>点餐系统</div>
+        <div class="menu" v-show='!isLogin()'>
+            <a href="login.html">登录</a>
+            <a href="register.html">注册</a>
+        </div>
+        <div class="menu" v-show="isLogin()">
+            <a href="login.html">退出登录</a>
+            <a href="user-dish.html">点餐</a>
+            <a href="user-order.html">订单</a>
+            <a>欢迎您, {{name}}!</a>
+        </div>
+    </nav>
+    <div class="notice" v-show='!isLogin()'>
+        请先<a href="login.html">登陆!</a>
+    </div>
+    <div class="container" v-show='isLogin()'>
+        <table cellspacing="0">
+            <tr class="table-header tr-order">
+                <th>订单id</th>
+                <th>用户id</th>
+                <th>是否完结</th>
+                <th>订单时间</th>
+                <th>查看详情</th>
+            </tr>
+            <tr v-for="order in orders" class="tr-order">
+                <td>{{order.ordersId}}</td>
+                <td>{{order.userId}}</td>
+                <td>{{order.isfinish == 1 ? "已完结" : "未完结"}}</td>
+                <td>{{order.ordertime}}</td>
+                <td>
+                    <button class="btn" v-on:click='getOrderDetail(order.ordersId)'>查看详情</button>
+                </td>
+            </tr>
+        </table>
+
+        <div class="dialog" v-if="curOrder != null">
+            <table cellspacing="0">
+                <tr class="table-header">
+                    <th>菜品</th>
+                    <th>价格</th>
+                </tr>
+                <tr v-for="dish in curOrder.vegs" class="tr-order-detail">
+                    <td>{{dish.name}}</td>
+                    <td>{{dish.price / 100}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="dialog-footer" v-if="curOrder != null">
+            <div>
+                总金额: {{curOrderPrice() / 100}}
+            </div>
+            <button v-on:click="curOrder = null" class="btn cancel-order-btn">关闭</button>
+        </div>
+    </div>
+</div>
+<!-- 引入 JQuery -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 引入 Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 引入自定制逻辑 -->
+<script src="js/user-order.js"></script>
+<script>
+        // 调用 checkLogin 来检测当前登录状态.
+        app.checkLogin();
+    </script>
+</body>
+
+</html>

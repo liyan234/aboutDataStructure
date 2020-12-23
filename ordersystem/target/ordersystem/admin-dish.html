@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点餐系统-菜品(管理员)</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="center">
+    <nav>
+        <div>点餐系统</div>
+        <div class="menu" v-show='!isLogin()'>
+            <a href="login.html">登录</a>
+        </div>
+        <div class="menu" v-show="isLogin()">
+            <a href="login.html">退出登录</a>
+            <a href="admin-dish.html">菜品管理</a>
+            <a href="admin-order.html">订单管理</a>
+            <a>欢迎管理员, {{name}}!</a>
+        </div>
+    </nav>
+    <div class="notice" v-show='!isLogin()'>
+        请先<a href="login.html">登陆!</a>
+    </div>
+    <div class="container" v-show='isLogin()'>
+        <table cellspacing="0">
+            <tr class="table-header tr-dish">
+                <th>菜名</th>
+                <th>价格</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="dish in dishes" class="tr-dish">
+                <td>{{dish.name}}</td>
+                <td>{{dish.price / 100}}</td>
+                <td> <button class="btn del-dish-btn" v-on:click="deleteDish(dish.vegId)">删除</button> </td>
+            </tr>
+        </table>
+        <button class="btn open-newdish-btn" v-on:click="showAddDishDialog=true">新增菜品</button>
+        <div class="dialog" v-if="showAddDishDialog">
+            <h4>请录入菜品</h4>
+            <input type="text" placeholder="请输入菜名" v-model="newDish.name">
+            <input type="text" placeholder="请输入价格(分)" v-model="newDish.price">
+            <button class="btn add-dish-btn" v-on:click="addDish()">提交</button>
+            <button class="btn cancel-dish-btn" v-on:click="showAddDishDialog=false">取消</button>
+        </div>
+    </div>
+</div>
+<!-- 引入 JQuery -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 引入 Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 引入自定制逻辑 -->
+<script src="js/admin-dish.js"></script>
+<script>
+        // 调用 checkLogin 来检测当前登录状态.
+        app.checkLogin();
+    </script>
+</body>
+
+</html>

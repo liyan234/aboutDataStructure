@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="login">
+    <h4>请注册</h4>
+    <input type="text" placeholder="请输入用户名" v-model="name">
+    <input type="password" placeholder="请输入密码" v-model="password">
+    <button v-on:click="register()">注册</button>
+</div>
+<!-- 引入 JQuery -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 引入 Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+        var app = new Vue({
+            el: '.login',
+            data: {
+                name: "",
+                password: "",
+            },
+            methods: {
+                register() {
+                    console.log("register");
+                    $.ajax({
+                        url: 'register',
+                        type: 'post',
+                        data: JSON.stringify({
+                            name: app.name,
+                            password: app.password,
+                        }),
+                        success: function (data, status) {
+                            if (data.ok != 1) {
+                                alert('注册失败! ' + data.reason);
+                                app.name = "";
+                                app.password = "";
+                                return;
+                            }
+                            alert("注册成功! 请在登陆页面登陆");
+                            window.location.href = "login.html";
+                        }
+                    })
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>

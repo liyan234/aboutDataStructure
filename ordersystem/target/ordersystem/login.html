@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="login">
+    <h4>请登录</h4>
+    <input type="text" placeholder="请输入用户名" v-model="name">
+    <input type="password" placeholder="请输入密码" v-model="password">
+    <button v-on:click="login()">登录</button>
+</div>
+<!-- 引入 JQuery -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 引入 Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+        var app = new Vue({
+            el: '.login',
+            data: {
+                name: "",
+                password: "",
+            },
+            methods: {
+                login() {
+                    console.log("login");
+                    $.ajax({
+                        url: 'login',
+                        type: 'post',
+                        data: JSON.stringify({
+                            name: app.name,
+                            password: app.password,
+                        }),
+                        success: function (data, status) {
+                            if (data.ok != 1) {
+                                alert('登陆失败! ' + data.reason);
+                                app.password = "";
+                                return;
+                            }
+                            if (data.isAdmin != 1) {
+                                // 普通用户 跳转到 user-dish.html
+                                window.location.href = "user-dish.html";
+                            } else {
+                                // 管理员, 跳转到 admin-dish.html
+                                window.location.href = "admin-dish.html";
+                            }
+                        }
+                    })
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>

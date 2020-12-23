@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<!-- 这个页面仅展示用户的点菜页面 -->
+<!-- 配套的 js 文件为 user-dish.js -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点餐系统 - 点餐</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="center">
+    <nav>
+        <div>点餐系统</div>
+        <div class="menu" v-show='!isLogin()'>
+            <a href="login.html">登录</a>
+            <a href="register.html">注册</a>
+        </div>
+        <div class="menu" v-show="isLogin()">
+            <a href="login.html">退出登录</a>
+            <a href="user-dish.html">点餐</a>
+            <a href="user-order.html">订单</a>
+            <a>欢迎您, {{name}}!</a>
+        </div>
+    </nav>
+    <div class="notice" v-show='!isLogin()'>
+        请先<a href="login.html">登陆!</a>
+    </div>
+    <div class="container" v-show='isLogin()'>
+        <table cellspacing="0">
+            <tr class="table-header tr-dish">
+                <th>菜名</th>
+                <th>价格</th>
+                <th>选择</th>
+            </tr>
+            <tr v-for="dish in dishes" class="tr-dish">
+                <td>{{dish.name}}</td>
+                <td>{{dish.price / 100}}</td>
+                <td> <input type="checkbox" v-model="dish.isSelected"> </td>
+            </tr>
+        </table>
+        <div class="footer">
+            <div class="detail">已点菜 {{selectedDishCount}} 道, 总计 {{selectedDishPrice}} 元</div>
+            <button v-on:click="postOrder()">下单</button>
+        </div>
+    </div>
+</div>
+<!-- 引入 JQuery -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 引入 Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 引入自定制逻辑 -->
+<script src="js/user-dish.js"></script>
+<script>
+        // 调用 checkLogin 来检测当前登录状态.
+        app.checkLogin();
+    </script>
+</body>
+
+</html>
