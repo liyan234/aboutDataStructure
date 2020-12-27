@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 通过bean标签定义bean对象，Spring Bean 容器是通过id来进行管理的
+          id相当于bean的名称，Spring可以通过id找到bean对象
+          若果没有id 默认以类名称首字母小写为id
+          默认是单例模式-->
+    <!--通过一个无参的构造方法，创建一个对象，如果该类型没有无参的构造方法，就会报错 -->
+
+    <bean id="li"  class="java.lang.String">
+    <constructor-arg value="xxx"/>
+    </bean>
+
+<!--    <bean class = "java.lang.String">-->
+<!--    </bean>-->
+
+    <!-- 属性注入 -->
+    <bean id="d1" class="frank.Duck">
+        <property name="name" value="LadyGaga" />
+        <property name="age" value="18" />
+    </bean>
+
+
+    <!--构造方法注入-->
+    <bean id="d2" class="frank.Duck2">
+        <constructor-arg name="n" value="烤鸭" />
+        <constructor-arg name="a" value="2" />
+    </bean>
+
+    <!--属性注入 然后有next 链表-->
+    <bean id="dk1" class="frank.Duck3">
+        <property name="name" value="烤鸭" />
+        <property name="age" value="1" />
+        <property name="next" ref="dk2"/>
+    </bean>
+
+    <bean id = "dk2" class="frank.Duck3">
+        <property name="name" value="酱鸭"/>
+        <property name="age" value="2"/>
+        <property name="next" ref="dk3"/>
+    </bean>
+
+    <bean id = "dk3" class="frank.Duck3">
+        <property name="name" value="鸭汤"/>
+        <property name="age" value="3"/>
+    </bean>
+
+
+
+    <!--链表的形式-->
+    <bean id="d1_1" class="frank.Duck">
+        <property name="name" value="s1" />
+        <property name="age" value="1" />
+    </bean>
+
+    <bean id="d1_2" class="frank.Duck">
+        <property name="name" value="s2" />
+        <property name="age" value="2" />
+    </bean>
+
+    <bean id="d1_3" class="frank.Duck">
+        <property name="name" value="s3" />
+        <property name="age" value="3" />
+    </bean>
+
+    <bean id="shop" class="frank.DuckShop">
+        <property name="ducks">
+            <list>
+                <ref bean="d1_1"/>
+                <ref bean="d1_2"/>
+                <ref bean="d1_3"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
